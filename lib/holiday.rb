@@ -25,17 +25,6 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 
-def holidays_with_bbqs(holiday_hash)
-holiday_hash.map do |season, holidays|
-  holidays.map do |holiday, supplies|
-   return holiday if supplies.include ("BBQ")
-  end
-end.flatten.compact
-end
-
-
-
-
 def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
     puts "#{season.capitalize}:"
@@ -43,5 +32,14 @@ def all_supplies_in_holidays(holiday_hash)
       puts " #{day.to_s.split("_").map {|i| i.capitalize}.join(" ")}: #{item.join(", ")}"
       end
     end
+  
+  
+  def holidays_with_bbqs(holiday_hash)
+holiday_hash.map do |season, holidays|
+  holidays.map do |holiday, supplies|
+   return holiday if supplies.include ("BBQ")
   end
+end.flatten.compact
+end
+
 
